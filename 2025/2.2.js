@@ -5,24 +5,16 @@ let idsSum = 0;
 
 for(let ids of sequence){
     let id = ids.split('-');
-    
     let left = Number(id[0]);
     let right = Number(id[1]);
     while(left <= right){
-    let d = left.toString().length;
+    let leftSTR = left.toString();
+    let t = (leftSTR + leftSTR).slice(1, -1);
     
-    if(left.toString().length % 2 !== 0){
-        ++left
-    }
-    else{
-    let k = d / 2;
-    let checkLeftRight = left.toString().slice(k);
-    let checkLeftLeft = left.toString().slice(0, k);    
-    if(checkLeftLeft === checkLeftRight){
+    if(t.includes(leftSTR)){
         idsSum = idsSum + left;
     }
     ++left;
-}
 }
 }
 console.log(idsSum);
